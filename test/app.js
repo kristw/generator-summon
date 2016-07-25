@@ -12,7 +12,10 @@ describe('generator-summon:app', function () {
 
   it('creates files', function () {
     assert.file([
-      // 'package.json'
+      'package.json',
+      '.babelrc',
+      'bower.json',
+      'karma.conf.js'
     ]);
   });
 });
