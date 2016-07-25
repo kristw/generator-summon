@@ -1,0 +1,8 @@
+{
+  "devDependencies":{
+    "babel-core": "^6.3.21",
+    "babel-preset-es2015": "^6.3.13",
+    "babel-preset-react": "^6.5.0",
+    "babel-plugin-transform-object-assign": "^6.1.12"
+  }
+}
