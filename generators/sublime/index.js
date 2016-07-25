@@ -23,9 +23,5 @@ module.exports = BaseWithEasily.extend({
         this.props.name + '.sublime-project'
       );
     }
-  },
-
-  install: function () {
-    this.installDependencies();
   }
 });

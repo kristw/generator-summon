@@ -18,9 +18,5 @@ module.exports = BaseWithEasily.extend({
         '.jshintrc'
       );
     }
-  },
-
-  install: function () {
-    this.installDependencies();
   }
 });
