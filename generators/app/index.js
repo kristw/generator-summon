@@ -8,10 +8,10 @@ module.exports = BaseWithEasily.extend({
     var choices = [
       'babel',
       'bower',
-      // 'webpack',
+      'webpack',
       'karma',
-      // 'gulp',
       'browser-sync',
+      'gulp',
       'gh-pages',
       'jshint'
     ];
