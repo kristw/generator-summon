@@ -20,15 +20,16 @@ module.exports = BaseWithEasily.extend({
 
   writing: function () {
     if (this.easily.checkForConfirmation()) {
-      this.easily.extendJSONWithTemplate(
-        '__package.json',
-        'package.json'
-      );
-      this.easily.copyTemplate(
-        '__karma.conf.js',
-        'karma.conf.js',
-        this.props
-      );
+      this.easily
+        .extendJSONWithTemplate(
+          '__package.json',
+          'package.json'
+        )
+        .copyTemplate(
+          '__karma.conf.js',
+          'karma.conf.js',
+          this.props
+        );
     }
   },
 

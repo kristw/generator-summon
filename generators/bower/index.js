@@ -22,15 +22,16 @@ module.exports = BaseWithEasily.extend({
 
   writing: function () {
     if (this.easily.checkForConfirmation()) {
-      this.easily.extendJSONWithTemplate(
-        '__package.json',
-        'package.json'
-      );
-      this.easily.extendJSONWithTemplate(
-        '__bower.json',
-        'bower.json',
-        this.props
-      );
+      this.easily
+        .extendJSONWithTemplate(
+          '__package.json',
+          'package.json'
+        )
+        .extendJSONWithTemplate(
+          '__bower.json',
+          'bower.json',
+          this.props
+        );
     }
   },
 
