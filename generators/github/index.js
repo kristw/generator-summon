@@ -40,13 +40,12 @@ module.exports = BaseWithEasily.extend({
     var dest = this.destinationPath(this.options.generateInto);
     var generator = this;
 
-    if(this.fs.exists(dest + '/.git/config')){
+    if (this.fs.exists(dest + '/.git/config')) {
       originUrl(dest).then(function (url) {
         generator.originUrl = url;
         done();
       }, done);
-    }
-    else{
+    } else {
       done();
     }
   },
@@ -75,10 +74,7 @@ module.exports = BaseWithEasily.extend({
 
     this.pkg.repository = this.pkg.repository || repository;
     this.pkg.bugs = _.extend({
-      url: 'https://github.com/'
-        + this.options.githubAccount
-        + '/' + this.options.name
-        + '/issues'
+      url: 'https://github.com/' + this.options.githubAccount + '/' + this.options.name + '/issues'
     }, this.pkg.bugs);
 
     this.fs.writeJSON(
