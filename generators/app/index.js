@@ -56,24 +56,33 @@ module.exports = BaseWithEasily.extend({
       var options = {
         skipGreeting: true
       };
-      options['use-' + tool] = true;
-      generator.easily.composeWithLocal(tool, options);
+      options['use-summon:' + tool] = true;
+      generator.easily.composeWithLocal(
+        'summon:' + tool,
+        options
+      );
     });
 
     if (props.linter !== 'none') {
       var lintOptions = {
         skipGreeting: true
       };
-      lintOptions['use-' + props.linter] = true;
-      generator.easily.composeWithLocal(props.linter, lintOptions);
+      lintOptions['use-summon:' + props.linter] = true;
+      generator.easily.composeWithLocal(
+        'summon:' + props.linter,
+        lintOptions
+      );
     }
 
     props.extra.forEach(function (tool) {
       var options = {
         skipGreeting: true
       };
-      options['use-' + tool] = true;
-      generator.easily.composeWithLocal(tool, options);
+      options['use-summon:' + tool] = true;
+      generator.easily.composeWithLocal(
+        'summon:' + tool,
+        options
+      );
     });
   }
 });

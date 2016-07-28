@@ -13,12 +13,12 @@ module.exports = BaseWithEasily.extend({
 
   writing: function () {
     if (this.easily.checkForConfirmation()) {
-      this.easily.extendJSONWithTemplate(
-        '__package.json',
-        'package.json'
-      );
-
-      this.easily.copy('webpack.config.js');
+      this.easily
+        .extendJSONWithTemplate(
+          '__package.json',
+          'package.json'
+        )
+        .copy('webpack.config.js');
     }
   },
 
