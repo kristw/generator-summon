@@ -12,7 +12,8 @@ describe('generator-summon:version-hooks', function () {
 
   it('creates files', function () {
     assert.file([
-      'package.json'
+      'package.json',
+      'docs/versioning.md'
     ]);
   });
 });

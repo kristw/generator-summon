@@ -54,6 +54,7 @@ module.exports = BaseWithEasily.extend({
     return this.easily
       .greet('Welcome to the striking ' + chalk.red('generator-summon') + ' generator!')
       .learnPrompts(commonPrompts)
+      .confirmBeforeStart('Would you like to create git repository point to github?')
       .prompt([
         'name',
         'githubAccount'
@@ -61,43 +62,46 @@ module.exports = BaseWithEasily.extend({
   },
 
   writing: function () {
-    _.extend(this.options, this.props);
+    if (this.easily.checkForConfirmation()) {
+      _.extend(this.options, this.props);
 
-    this.pkg = this.fs.readJSON(this.destinationPath(this.options.generateInto, 'package.json'), {});
+      this.pkg = this.fs.readJSON(this.destinationPath(this.options.generateInto, 'package.json'), {});
 
-    var repository = '';
-    if (this.originUrl) {
-      repository = this.originUrl;
-    } else {
-      repository = this.options.githubAccount + '/' + this.options.name;
+      var repository = '';
+      if (this.originUrl) {
+        repository = this.originUrl;
+      } else {
+        repository = this.options.githubAccount + '/' + this.options.name;
+      }
+
+      this.pkg.repository = this.pkg.repository || repository;
+      this.pkg.bugs = _.extend({
+        url: 'https://github.com/' + this.options.githubAccount + '/' + this.options.name + '/issues'
+      }, this.pkg.bugs);
+
+      this.fs.writeJSON(
+        this.destinationPath(this.options.generateInto, 'package.json'),
+        this.pkg
+      );
     }
-
-    this.pkg.repository = this.pkg.repository || repository;
-    this.pkg.bugs = _.extend({
-      url: 'https://github.com/' + this.options.githubAccount + '/' + this.options.name + '/issues'
-    }, this.pkg.bugs);
-
-    this.fs.writeJSON(
-      this.destinationPath(this.options.generateInto, 'package.json'),
-      this.pkg
-    );
   },
 
   end: function () {
-    this.spawnCommandSync('git', ['init'], {
-      cwd: this.destinationPath(this.options.generateInto)
-    });
-
-    if (!this.originUrl) {
-      var repoSSH = this.pkg.repository;
-      if (this.pkg.repository.indexOf('.git') === -1) {
-        repoSSH = 'git@github.com:' + this.pkg.repository + '.git';
-      }
-      this.spawnCommandSync('git', ['remote', 'add', 'origin', repoSSH], {
+    if (this.easily.checkForConfirmation()) {
+      this.spawnCommandSync('git', ['init'], {
         cwd: this.destinationPath(this.options.generateInto)
       });
-    }
 
-    console.log('Done!');
+      if (!this.originUrl) {
+        var repoSSH = this.pkg.repository;
+        if (this.pkg.repository.indexOf('.git') === -1) {
+          repoSSH = 'git@github.com:' + this.pkg.repository + '.git';
+        }
+        this.spawnCommandSync('git', ['remote', 'add', 'origin', repoSSH], {
+          cwd: this.destinationPath(this.options.generateInto)
+        });
+      }
+      console.log('Done!');
+    }
   }
 });

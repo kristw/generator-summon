@@ -13,10 +13,12 @@ module.exports = BaseWithEasily.extend({
 
   writing: function () {
     if (this.easily.checkForConfirmation()) {
-      this.easily.extendJSONWithTemplate(
-        '__package.json',
-        'package.json'
-      );
+      this.easily
+        .extendJSONWithTemplate(
+          '__package.json',
+          'package.json'
+        )
+        .copy('docs/versioning.md');
     }
   },
 

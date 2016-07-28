@@ -34,16 +34,11 @@ module.exports = BaseWithEasily.extend({
     var generator = this;
     this.props.devtools.forEach(function (tool) {
       var options = {
-        skipGreeting: true,
-        skipInstall: true
+        skipGreeting: true
       };
       options['use-' + tool] = true;
       generator.easily.composeWithLocal(tool, options);
     });
-  },
-
-  install: function () {
-    this.installDependencies();
   }
 });
 
