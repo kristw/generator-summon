@@ -29,8 +29,8 @@ module.exports = BaseWithEasily.extend({
         type: 'list',
         name: 'linter',
         message: 'Choose linter:',
-        choices: ['jshint', 'none'],
-        default: 'jshint'
+        choices: ['eslint', 'jshint', 'none'],
+        default: 'eslint'
       },
       {
         type: 'checkbox',
