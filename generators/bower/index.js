@@ -16,7 +16,8 @@ module.exports = BaseWithEasily.extend({
         'description',
         'authorName',
         'authorEmail',
-        'authorUrl'
+        'authorUrl',
+        'githubAccount'
       ], true);
   },
 
@@ -25,7 +26,8 @@ module.exports = BaseWithEasily.extend({
       this.easily
         .extendJSONWithTemplate(
           '__package.json',
-          'package.json'
+          'package.json',
+          this.props
         )
         .extendJSONWithTemplate(
           '__bower.json',

@@ -1,5 +1,8 @@
 {
   "devDependencies": {
     "bower": "^1.6.5"
+  },
+  "scripts": {
+    "register-bower": "bower register <%=name%> git://github.com/<%=githubAccount%>/<%=name%>"
   }
 }
