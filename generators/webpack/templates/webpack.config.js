@@ -1,9 +1,9 @@
 'use strict';
 
-var path = require('path');
 var webpack = require('webpack');
 
 // Find bower path
+var path = require('path');
 var fs = require('fs');
 var bowerConfig = path.join(__dirname, '.bowerrc');
 var bowerPath = 'bower_components';
