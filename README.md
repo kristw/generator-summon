@@ -10,18 +10,44 @@ npm install -g yo
 npm install -g generator-summon
 ```
 
-Then generate your new project:
+Run this command to add web developer tools as needed.
 
 ```bash
 yo summon
 ```
 
-## Getting To Know Yeoman
+or run the specific subgenerator
 
- * Yeoman has a heart of gold.
- * Yeoman is a person with feelings and opinions, but is very easy to work with.
- * Yeoman can be too opinionated at times but is easily convinced not to be.
- * Feel free to [learn more about Yeoman](http://yeoman.io/).
+```bash
+# Install packages, files, and scripts for using babel
+yo summon:babel
+# Install packages, files, and scripts for using bower
+yo summon:bower
+# Install packages and scripts for using browser-sync
+yo summon:browser-sync
+# Install packages, files, and scripts for using eslint
+yo summon:eslint
+# Install packages, files, and scripts for using express
+yo summon:express
+# Install packages and scripts for using github pages
+yo summon:gh-pages
+# Setup this repository to point to github repo
+yo summon:github
+# Install packages, files, and scripts for using gulp
+yo summon:gulp
+# Install packages and files for using jshint
+yo summon:jshint
+# Install packages, files, and scripts for using karma
+yo summon:karma
+# Add sublime project configuration file
+yo summon:sublime
+# Install packages and scripts for updating versions via npm
+yo summon:version-hooks
+# Install packages, files, and scripts for using webpack
+yo summon:webpack
+```
+
+[Learn more about Yeoman](http://yeoman.io/).
 
 ## License
 
