@@ -1,11 +1,11 @@
 'use strict';
 
 var ye = require('yeoman-easily');
-var BaseWithEasily = ye.BaseWithEasily;
+var Easily = ye.Easily;
 var commonPrompts = ye.prompts;
 var chalk = require('chalk');
 
-module.exports = BaseWithEasily.extend({
+module.exports = Easily.createGenerator({
   prompting: function () {
     var choices = [
       'babel',
@@ -58,6 +58,7 @@ module.exports = BaseWithEasily.extend({
       };
       options['use-summon:' + tool] = true;
       generator.easily.composeWithLocal(
+        tool,
         'summon:' + tool,
         options
       );
@@ -69,6 +70,7 @@ module.exports = BaseWithEasily.extend({
       };
       lintOptions['use-summon:' + props.linter] = true;
       generator.easily.composeWithLocal(
+        props.linter,
         'summon:' + props.linter,
         lintOptions
       );
@@ -80,6 +82,7 @@ module.exports = BaseWithEasily.extend({
       };
       options['use-summon:' + tool] = true;
       generator.easily.composeWithLocal(
+        tool,
         'summon:' + tool,
         options
       );

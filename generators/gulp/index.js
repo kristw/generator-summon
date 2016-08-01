@@ -1,9 +1,9 @@
 'use strict';
 
-var BaseWithEasily = require('yeoman-easily').BaseWithEasily;
+var Easily = require('yeoman-easily').Easily;
 var chalk = require('chalk');
 
-module.exports = BaseWithEasily.extend({
+module.exports = Easily.createGenerator({
   prompting: function () {
     return this.easily
       .greet('Welcome to the posh ' + chalk.red('generator-summon') + ' generator!')

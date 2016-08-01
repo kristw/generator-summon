@@ -1,15 +1,15 @@
 'use strict';
 
-var chalk = require('chalk');
 var generator = require('yeoman-generator');
-var ye = require('yeoman-easily');
-var BaseWithEasily = ye.BaseWithEasily;
-var Easily = ye.Easily;
-var commonPrompts = ye.prompts;
 var originUrl = require('git-remote-origin-url');
 var _ = require('lodash');
 
-module.exports = BaseWithEasily.extend({
+var ye = require('yeoman-easily');
+var Easily = ye.Easily;
+var commonPrompts = ye.prompts;
+var chalk = require('chalk');
+
+module.exports = Easily.createGenerator({
   constructor: function () {
     generator.Base.apply(this, arguments);
 
