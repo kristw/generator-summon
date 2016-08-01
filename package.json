@@ -52,8 +52,11 @@
   },
   "repository": "kristw/generator-summon",
   "scripts": {
+    "test": "gulp",
+    "build": "gulp prepublish",
     "prepublish": "gulp prepublish",
-    "test": "gulp"
+    "version": "npm run build",
+    "postversion": "git push ; git push --tags"
   },
   "license": "Apache-2.0"
 }
