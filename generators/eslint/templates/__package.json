@@ -7,7 +7,7 @@
     "eslint-plugin-react": "^5.2.2"
   },
   "scripts": {
-    "eslint": "eslint --ignore-path .gitignore src/**",
-    "eslint-fix": "eslint --fix --ignore-path .gitignore src/**"
+    "eslint": "eslint --ignore-path .gitignore \"src/**/*.@(js|jsx)\"",
+    "eslint-fix": "eslint --fix --ignore-path .gitignore \"src/**/*.@(js|jsx)\""
   }
 }
