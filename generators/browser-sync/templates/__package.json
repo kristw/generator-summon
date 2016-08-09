@@ -1,5 +1,8 @@
 {
   "devDependencies": {
-    "browser-sync": "~2.10.1"
+    "browser-sync": "~2.14.0"
+  },
+  "scripts": {
+    "browser-sync": "browser-sync start --server 'dist' --browser \"Google Chrome\" --files \"dist/**/*.*\" --port 7000"
   }
 }
