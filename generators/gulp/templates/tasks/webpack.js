@@ -9,6 +9,7 @@ export const compileExecutable = wrap(function(src, dest){
   return src
     .pipe(named())
     .pipe(webpackStream(_.extend(webpackConfig, {
+      watch: true,
       output: { sourceMapFilename: '[file].map' }
     })))
     .on('error', function handleError() {
