@@ -11,9 +11,14 @@ module.exports = Easily.createGenerator({
       'babel',
       'bower',
       'browser-sync',
-      'webpack',
       'karma',
       'gulp'
+    ];
+
+    var bundlerChoices = [
+      'webpack',
+      'webpack+bower'
+      // 'rollup'
     ];
 
     var prompts = [
@@ -23,7 +28,14 @@ module.exports = Easily.createGenerator({
         name: 'devtools',
         message: 'Choose build tools:',
         choices: choices,
-        default: choices
+        default: choices.filter(d => d !== 'bower')
+      },
+      {
+        type: 'list',
+        name: 'bundler',
+        message: 'Choose bundler:',
+        choices: bundlerChoices,
+        default: 'webpack'
       },
       {
         type: 'list',
@@ -63,6 +75,17 @@ module.exports = Easily.createGenerator({
         options
       );
     });
+
+    var bundlerOptions = {
+      skipGreeting: true
+    };
+    bundlerOptions['use-summon:' + props.bundler] = true;
+
+    generator.easily.composeWithLocal(
+      props.bundler,
+      'summon:' + props.bundler,
+      bundlerOptions
+    );
 
     if (props.linter !== 'none') {
       var lintOptions = {
