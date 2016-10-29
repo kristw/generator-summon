@@ -1,8 +1,8 @@
 var webpack = require('webpack');
+var path = require('path');
 
 <% if(useBower){ %>
 // Find bower path
-var path = require('path');
 var fs = require('fs');
 var bowerConfig = path.join(__dirname, '.bowerrc');
 var bowerPath = 'bower_components';
@@ -21,6 +21,13 @@ var isProduction = process.env.NODE_ENV === 'production';
 
 // Create config
 var config = {
+  entry: {
+    '<%=entryFileName%>': './src/<%=entryFileName%>.js'
+  },
+  output: {
+    path: path.join(__dirname, 'dist'),
+    filename: '[name].js'
+  },
   module: {
     loaders: [
       {

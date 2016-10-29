@@ -4,11 +4,9 @@
     "babelrc-rollup": "^3.0.0",
     "rollup": "^0.34.7",
     "rollup-plugin-babel": "^2.6.1",
-    "rollup-plugin-node-resolve": "^2.0.0",
-    "uglifyjs": "^2.4.10"
+    "rollup-plugin-node-resolve": "^2.0.0"
   },
   "scripts": {
-    "bundlejs": "rollup -c",
-    "build": "npm run bundlejs && uglifyjs dist/<%=name%>.js -m -c > dist/<%=name%>.min.js"
+    "bundlejs": "rollup -c"
   }
 }

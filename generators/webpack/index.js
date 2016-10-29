@@ -14,6 +14,13 @@ module.exports = Easily.createGenerator({
           name: 'useBower',
           message: 'Use webpack with bower',
           default: false
+        },
+        {
+          type: 'input',
+          name: 'entryFileName',
+          message: 'Entry file name:',
+          default: 'main.js',
+          filter: x => x.trim().replace(/[.]js$/, '')
         }
       ], true);
   },
