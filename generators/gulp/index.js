@@ -36,7 +36,7 @@ module.exports = Easily.createGenerator({
         this.easily
           .extendJSON('package.json', {
             devDependencies: {
-              'gulp-sass': '~2.1.1'
+              'gulp-sass': '^2.1.1'
             }
           })
           .copyFiles('tasks/sass.js');
@@ -46,7 +46,7 @@ module.exports = Easily.createGenerator({
         this.easily
           .extendJSON('package.json', {
             devDependencies: {
-              'gulp-imagemin': '~2.4.0'
+              'gulp-imagemin': '^2.4.0'
             }
           })
           .copyFiles('tasks/image.js');
@@ -56,8 +56,8 @@ module.exports = Easily.createGenerator({
         this.easily
           .extendJSON('package.json', {
             devDependencies: {
-              'gulp-ejs': '~2.1.2',
-              'gulp-htmlmin': '~1.3.0'
+              'gulp-ejs': '^2.1.2',
+              'gulp-htmlmin': '^1.3.0'
             }
           })
           .copyFiles('tasks/ejs.js');
@@ -67,8 +67,8 @@ module.exports = Easily.createGenerator({
         this.easily
           .extendJSON('package.json', {
             devDependencies: {
-              'gulp-ng-templates': '~0.0.6',
-              'gulp-htmlmin': '~1.3.0'
+              'gulp-ng-templates': '^0.0.6',
+              'gulp-htmlmin': '^1.3.0'
             }
           })
           .copyFiles('tasks/ngtemplates.js');

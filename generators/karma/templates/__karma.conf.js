@@ -7,13 +7,6 @@ var webpackConfig = require('./webpack.config.js');
 // which is slow
 delete webpackConfig.entry;
 delete webpackConfig.output;
-webpackConfig.module.postLoaders = [
-  // instrument only source files with Istanbul
-  {
-    test: /\/[A-Za-z0-9_\-\/]+(?!\.spec)\.js$/,
-    loader: 'istanbul-instrumenter'
-  }
-];
 webpackConfig.devtool = 'inline-source-map';
 <% } else if (bundler==='rollup') { %>
 var babel = require('rollup-plugin-babel');
@@ -45,7 +38,7 @@ module.exports = function (config) {
     // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
 <% if (bundler==='webpack') { %>
     preprocessors: {
-      '<%=testSpecPattern%>': ['webpack', 'sourcemap']
+      '<%=testSpecPattern%>': ['webpack']
     },
     webpack: webpackConfig,
 <% } else if (bundler==='rollup') { %>
