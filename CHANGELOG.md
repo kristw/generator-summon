@@ -1,5 +1,8 @@
 # generator-summon
 
+## v0.8.1
+- Change list to checkbox
+
 ## v0.8.0
 - Add option for webpack subgenerator to use bower or not and remove the makeshift webpack+bower generator
 - Add rollup subgenerator

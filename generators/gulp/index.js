@@ -12,7 +12,7 @@ module.exports = Easily.createGenerator({
       .confirmBeforeStart('Would you like to continue?')
       .prompt([
         {
-          type: 'list',
+          type: 'checkbox',
           name: 'gulpTasks',
           message: 'Choose gulp tasks:',
           choices: gulpTasks,
