@@ -1,8 +1,12 @@
 // Karma configuration
 'use strict';
 
+<% if (bundler==='webpack') { %>
 var webpackConfig = require('./webpack.config.js');
-
+// Delete these fields to avoid bundling the whole app
+// which is slow
+delete webpackConfig.entry;
+delete webpackConfig.output;
 webpackConfig.module.postLoaders = [
   // instrument only source files with Istanbul
   {
@@ -11,6 +15,11 @@ webpackConfig.module.postLoaders = [
   }
 ];
 webpackConfig.devtool = 'inline-source-map';
+<% } else if (bundler==='rollup') { %>
+var babel = require('rollup-plugin-babel');
+var babelrc = require('babelrc-rollup').default;
+var nodeResolve = require('rollup-plugin-node-resolve');
+<% } %>
 
 module.exports = function (config) {
   config.set({
@@ -20,7 +29,11 @@ module.exports = function (config) {
 
     // frameworks to use
     // available frameworks: https://npmjs.org/browse/keyword/karma-adapter
+<% if (karmaConfig==='jasmine') { %>
     frameworks: ['jasmine'],
+<% } else if (karmaConfig==='mocha + chai') { %>
+    frameworks: ['mocha', 'chai'],
+<% } %>
 
     // each file acts as entry point for the webpack configuration
     files: [
@@ -30,16 +43,42 @@ module.exports = function (config) {
 
     // preprocess matching files before serving them to the browser
     // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
+<% if (bundler==='webpack') { %>
     preprocessors: {
       '<%=testSpecPattern%>': ['webpack', 'sourcemap']
     },
-
     webpack: webpackConfig,
+<% } else if (bundler==='rollup') { %>
+    preprocessors: {
+      '<%=testSpecPattern%>': ['rollup']
+    },
+    rollupPreprocessor: {
+      // rollup settings. See Rollup documentation
+      plugins: [
+        nodeResolve(),
+        babel(babelrc())
+      ],
+      // will help to prevent conflicts between different tests entries
+      format: 'iife',
+      sourceMap: 'inline'
+    },
+<% } %>
 
     // test results reporter to use
     // possible values: 'dots', 'progress', 'mocha', 'coverage'
     // available reporters: https://npmjs.org/browse/keyword/karma-reporter
+<% if (karmaConfig==='jasmine') { %>
     reporters: ['spec', 'coverage'],
+<% } else if (karmaConfig==='mocha + chai') { %>
+    reporters: ['mocha', 'coverage'],
+<% } %>
+
+    coverageReporter: {
+      reporters: [
+        { type: 'text' },
+        { type: 'html' }
+      ]
+    },
 
     // web server port
     port: 9876,

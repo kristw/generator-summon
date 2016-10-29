@@ -5,10 +5,34 @@ var chalk = require('chalk');
 
 module.exports = Easily.createGenerator({
   prompting: function () {
+    var configChoices = [
+      'mocha + chai',
+      'jasmine'
+    ];
+
+    var bundlerChoices = [
+      'webpack',
+      'rollup'
+    ];
+
     return this.easily
       .greet('Welcome to the magnificent ' + chalk.red('generator-summon') + ' generator!')
-      .confirmBeforeStart('Would you like to use karma + jasmine + istanbul?')
+      .confirmBeforeStart('Would you like to use karma + istanbul?')
       .prompt([
+        {
+          type: 'list',
+          name: 'karmaConfig',
+          message: 'Choose tester configuration:',
+          choices: configChoices,
+          default: configChoices[0]
+        },
+        {
+          type: 'list',
+          name: 'bundler',
+          message: 'Choose bundler:',
+          choices: bundlerChoices,
+          default: bundlerChoices[0]
+        },
         {
           type: 'input',
           name: 'testSpecPattern',
@@ -23,7 +47,13 @@ module.exports = Easily.createGenerator({
       this.easily
         .extendJSONWithTemplate(
           '__package.json',
-          'package.json'
+          'package.json',
+          this.props
+        )
+        .extendJSONWithTemplate(
+          '__babelrc',
+          '.babelrc',
+          this.props
         )
         .copyTemplate(
           '__karma.conf.js',

@@ -1,0 +1,11 @@
+{
+  "env" : {
+    "test": {
+      "plugins": [
+        ["istanbul", {
+          "exclude": ["<%=testSpecPattern%>", "node_modules/**/*"]
+        }]
+      ]
+    }
+  }
+}
