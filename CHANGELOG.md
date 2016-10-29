@@ -1,5 +1,8 @@
 # generator-summon
 
+## v0.8.2
+- Add mocha and chai as dependencies if used
+
 ## v0.8.1
 - Change list to checkbox
 
