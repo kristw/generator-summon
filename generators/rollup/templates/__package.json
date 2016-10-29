@@ -8,7 +8,7 @@
     "uglifyjs": "^2.4.10"
   },
   "scripts": {
-    "rollup": "rollup -c",
-    "build": "npm run rollup && uglifyjs dist/<%=name%>.js -m -c > dist/<%=name%>.min.js"
+    "bundlejs": "rollup -c",
+    "build": "npm run bundlejs && uglifyjs dist/<%=name%>.js -m -c > dist/<%=name%>.min.js"
   }
 }

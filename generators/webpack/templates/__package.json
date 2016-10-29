@@ -5,7 +5,7 @@
     "webpack": "^1.12.9"
   },
   "scripts": {
-    "webpack": "webpack",
-    "webpack-watch": "webpack --watch"
+    "bundlejs": "webpack",
+    "bundlejs-watch": "webpack --watch"
   }
 }

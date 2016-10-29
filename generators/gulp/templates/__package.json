@@ -1,17 +1,10 @@
 {
   "devDependencies": {
-    "del": "^2.2.0",
     "gulp": "^3.9.0",
     "gulp-load-plugins": "^1.1.0",
     "gulp-newer": "~1.1.0",
-    "run-sequence": "^1.1.5",
-    "webpack-stream": "^3.1.0",
-    "gulp-rename": "^1.2.2",
-    "vinyl-named": "^1.1.0"
+    "gulp-rename": "^1.2.2"
   },
   "scripts":{
-    "build": "NODE_ENV=production gulp build",
-    "dev": "gulp",
-    "start": "NODE_ENV=production gulp"
   }
 }
