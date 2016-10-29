@@ -14,8 +14,8 @@ export function wrap(fn){
     return function(){
       return fn(source(src), dest)
         .pipe(gulp.dest(dest));
-    }
-  }
+    };
+  };
   output.stream = fn;
   return output;
 }
@@ -32,5 +32,5 @@ export function createBuildAndWatchTasks(buildTasks){
 
 export function checkProductionMode(){
   // Detect environment
-  return process.env.NODE_ENV=='production';
+  return process.env.NODE_ENV === 'production';
 }

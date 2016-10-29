@@ -14,11 +14,7 @@ describe('generator-summon:gulp', function () {
     assert.file([
       'package.json',
       'tasks/core.js',
-      'tasks/common.js',
-      'tasks/ejs.js',
-      'tasks/image.js',
-      'tasks/ngtemplates.js',
-      'tasks/sass.js'
+      'tasks/common.js'
     ]);
   });
 });
