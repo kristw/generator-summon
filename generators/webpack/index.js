@@ -8,7 +8,14 @@ module.exports = Easily.createGenerator({
     return this.easily
       .greet('Welcome to the awe-inspiring ' + chalk.red('generator-summon') + ' generator!')
       .confirmBeforeStart('Would you like to continue?')
-      .prompt();
+      .prompt([
+        {
+          type: 'confirm',
+          name: 'useBower',
+          message: 'Use webpack with bower',
+          default: false
+        }
+      ], true);
   },
 
   writing: function () {
@@ -18,7 +25,11 @@ module.exports = Easily.createGenerator({
           '__package.json',
           'package.json'
         )
-        .copy('webpack.config.js');
+        .copyTemplate(
+          '__webpack.config.js',
+          'webpack.config.js',
+          this.props
+        );
     }
   },
 

@@ -39,7 +39,7 @@ var config = {
     ]
   },
   resolve: {
-    modulesDirectories: [bowerPath, 'node_modules']
+    modulesDirectories: ['node_modules', bowerPath]
   },
   plugins: [
     new webpack.ResolverPlugin(
