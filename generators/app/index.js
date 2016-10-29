@@ -10,7 +10,6 @@ module.exports = Easily.createGenerator({
     var choices = [
       'babel',
       'bower',
-      'browser-sync',
       'karma',
       'gulp'
     ];
@@ -23,18 +22,18 @@ module.exports = Easily.createGenerator({
     var prompts = [
       'name',
       {
-        type: 'checkbox',
-        name: 'devtools',
-        message: 'Choose build tools:',
-        choices: choices,
-        default: choices.filter(d => d !== 'bower')
-      },
-      {
         type: 'list',
         name: 'bundler',
         message: 'Choose bundler:',
         choices: bundlerChoices,
         default: 'webpack'
+      },
+      {
+        type: 'checkbox',
+        name: 'devtools',
+        message: 'Choose build tools:',
+        choices: choices,
+        default: choices.filter(d => d !== 'bower')
       },
       {
         type: 'list',
@@ -47,8 +46,8 @@ module.exports = Easily.createGenerator({
         type: 'checkbox',
         name: 'extra',
         message: 'Choose extra:',
-        choices: ['version-hooks', 'gh-pages', 'sublime'],
-        default: ['version-hooks', 'gh-pages', 'sublime']
+        choices: ['browser-sync', 'version-hooks', 'gh-pages', 'sublime'],
+        default: ['browser-sync', 'version-hooks', 'gh-pages', 'sublime']
       }
     ];
 
@@ -65,9 +64,13 @@ module.exports = Easily.createGenerator({
 
     props.devtools.forEach(function (tool) {
       var options = {
-        skipGreeting: true
+        skipGreeting: true,
+        name: props.name
       };
       options['use-summon:' + tool] = true;
+      if (tool === 'karma') {
+        options.bundler = props.bundler;
+      }
       generator.easily.composeWithLocal(
         tool,
         'summon:' + tool,
@@ -76,7 +79,8 @@ module.exports = Easily.createGenerator({
     });
 
     var bundlerOptions = {
-      skipGreeting: true
+      skipGreeting: true,
+      name: props.name
     };
     bundlerOptions['use-summon:' + props.bundler] = true;
 
@@ -100,7 +104,8 @@ module.exports = Easily.createGenerator({
 
     props.extra.forEach(function (tool) {
       var options = {
-        skipGreeting: true
+        skipGreeting: true,
+        name: props.name
       };
       options['use-summon:' + tool] = true;
       generator.easily.composeWithLocal(
