@@ -17,7 +17,6 @@ module.exports = Easily.createGenerator({
 
     var bundlerChoices = [
       'webpack',
-      'webpack+bower',
       'rollup'
     ];
 
