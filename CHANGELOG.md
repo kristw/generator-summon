@@ -1,5 +1,8 @@
 # generator-summon
 
+## v0.8.3
+- Various bug fixes
+
 ## v0.8.2
 - Add mocha and chai as dependencies if used
 

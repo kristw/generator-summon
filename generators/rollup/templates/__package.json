@@ -4,9 +4,11 @@
     "babelrc-rollup": "^3.0.0",
     "rollup": "^0.34.7",
     "rollup-plugin-babel": "^2.6.1",
-    "rollup-plugin-node-resolve": "^2.0.0"
+    "rollup-plugin-node-resolve": "^2.0.0",
+    "rollup-watch": "^2.5.0"
   },
   "scripts": {
-    "bundlejs": "rollup -c"
+    "bundlejs": "rollup -c",
+    "bundlejs-watch": "rollup -c -w"
   }
 }
