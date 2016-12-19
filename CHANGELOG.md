@@ -1,6 +1,6 @@
 # generator-summon
 
-## v0.8.5
+## v0.8.5-0.8.6
 - Fix karma tdd to watch non-test files as well.
 
 ## v0.8.3-0.8.4
