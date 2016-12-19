@@ -32,7 +32,7 @@ module.exports = function (config) {
     files: [
       // Add the js files so it will trigger watch,
       // but do not include them as tests
-      { pattern: 'src/**/*!(.spec).@(js|jsx)', included: false, served: false },
+      { pattern: 'src/**/!(*.spec).@(js|jsx)', included: false, served: false },
       // Add all files ending in ".spec.js"
       // These are the unit test files
       '<%=testSpecPattern%>'
