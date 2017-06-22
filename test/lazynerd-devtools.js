@@ -13,6 +13,7 @@ describe('generator-summon:lazynerd-devtools', function () {
   it('creates files', function () {
     assert.file([
       'package.json',
+      '.eslintrc.js',
       'docs/development.md'
     ]);
   });

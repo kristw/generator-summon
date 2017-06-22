@@ -1,5 +1,9 @@
 # generator-summon
 
+## v0.10.0
+- Bump `gh-pages` version to 1.0.0
+- Add `.eslintrc.js` for `lazynerd-devtools`
+
 ## v0.9.1
 - Add development instruction and use `npm run start` instead of `npm run dev`
 

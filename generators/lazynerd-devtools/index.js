@@ -19,6 +19,7 @@ module.exports = Easily.createGenerator({
           'package.json',
           this.props
         )
+        .copy('__eslintrc.js', '.eslintrc.js')
         .copy('docs/development.md');
     }
   },
