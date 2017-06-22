@@ -12,7 +12,8 @@ describe('generator-summon:lazynerd-devtools', function () {
 
   it('creates files', function () {
     assert.file([
-      'package.json'
+      'package.json',
+      'docs/development.md'
     ]);
   });
 });

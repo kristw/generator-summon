@@ -13,11 +13,13 @@ module.exports = Easily.createGenerator({
 
   writing: function () {
     if (this.easily.checkForConfirmation()) {
-      this.easily.extendJSONWithTemplate(
-        '__package.json',
-        'package.json',
-        this.props
-      );
+      this.easily
+        .extendJSONWithTemplate(
+          '__package.json',
+          'package.json',
+          this.props
+        )
+        .copy('docs/development.md');
     }
   },
 

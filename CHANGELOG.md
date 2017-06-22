@@ -1,5 +1,8 @@
 # generator-summon
 
+## v0.9.1
+- Add development instruction and use `npm run start` instead of `npm run dev`
+
 ## v0.9.0
 - Add `lazynerd-devtools` subgenerator
 - Add `np` to `version-hooks` subgenerator
