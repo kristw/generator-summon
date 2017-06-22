@@ -4,6 +4,7 @@
     "pkgfiles": "^2.3.0"
   },
   "scripts": {
+    "np": "np",
     "preversion": "npm test",
     "version": "npm run build && git add -A dist",
     "prepublish": "pkgfiles"
