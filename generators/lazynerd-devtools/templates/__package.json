@@ -1,0 +1,15 @@
+{
+  "devDependencies": {
+    "lazynerd-devtools": "^0.0.2"
+  },
+  "scripts": {
+    "dev": "./node_modules/lazynerd-devtools/dev --config webpack.config.js",
+    "build": "npm run clean && NODE_ENV=production ./node_modules/lazynerd-devtools/build --config webpack.config.js",
+    "lint": "./node_modules/lazynerd-devtools/lint \"src/**/*.@(js|jsx)\"",
+    "lint-fix": "./node_modules/lazynerd-devtools/lint --fix \"src/**/*.@(js|jsx)\"",
+    "storybook": "./node_modules/lazynerd-devtools/storybook",
+    "build-storybook": "./node_modules/lazynerd-devtools/build-storybook",
+    "test": "./node_modules/lazynerd-devtools/karma --single-run",
+    "tdd": "./node_modules/lazynerd-devtools/karma"
+  }
+}

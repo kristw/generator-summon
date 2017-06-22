@@ -1,5 +1,9 @@
 # generator-summon
 
+## v0.9.0
+- Add `lazynerd-devtools` subgenerator
+- Add `np` to `version-hooks` subgenerator
+
 ## v0.8.5-0.8.6
 - Fix karma tdd to watch non-test files as well.
 
