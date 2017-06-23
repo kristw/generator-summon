@@ -1,5 +1,8 @@
 # generator-summon
 
+## v0.11.2
+- Fix bugs in example story
+
 ## v0.11.1
 - Move files in `react` subgenerator into `src`
 
