@@ -1,5 +1,8 @@
 # generator-summon
 
+## v0.11.1
+- Move files in `react` subgenerator into `src`
+
 ## v0.11.0
 - Add `react` subgenerator
 - Bump `lazynerd-devtools` version to 0.1.1

@@ -19,9 +19,10 @@ module.exports = Easily.createGenerator({
           'package.json',
           this.props
         )
-        .copy('index.js')
-        .copy('App.jsx')
-        .copy('App.scss');
+        .copy('src/index.js')
+        .copy('src/App.jsx')
+        .copy('src/App.scss')
+        .copy('src/_common.scss');
     }
   },
 

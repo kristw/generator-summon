@@ -13,9 +13,9 @@ describe('generator-summon:react', function () {
   it('creates files', function () {
     assert.file([
       'package.json',
-      'App.jsx',
-      'index.js',
-      'App.scss'
+      'src/App.jsx',
+      'src/index.js',
+      'src/_common.scss'
     ]);
   });
 });
