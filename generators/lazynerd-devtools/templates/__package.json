@@ -1,6 +1,6 @@
 {
   "devDependencies": {
-    "lazynerd-devtools": "^0.0.2"
+    "lazynerd-devtools": "^0.1.1"
   },
   "scripts": {
     "start": "./node_modules/lazynerd-devtools/dev --config webpack.config.js",
