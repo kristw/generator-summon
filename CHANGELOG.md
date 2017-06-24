@@ -1,6 +1,6 @@
 # generator-summon
 
-## v0.11.2
+## v0.11.2-3
 - Fix bugs in example story
 
 ## v0.11.1
